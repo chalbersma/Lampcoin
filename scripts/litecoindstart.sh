@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Start Litecoin
-su - coin -c '/opt/bin/litecoind start'
+su -s /bin/bash -c '/opt/bin/litecoind start' coin

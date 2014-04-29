@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Stop  Litecoin
-su - coin -c '/opt/bin/litecoind stop'
+su -s /bin/bash -c '/opt/bin/litecoind stop' coin

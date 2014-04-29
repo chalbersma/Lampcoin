@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Stop  Bitcoind
-su - coin -c '/opt/bin/bitcoind stop'
+su -s /bin/bash -c '/opt/bin/bitcoind stop'  coin

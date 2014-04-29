@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Stop  Namecoin
-su - coin -c '/opt/bin/namecoind stop'
+su -s /bin/bash -c '/opt/bin/namecoind stop' coin
