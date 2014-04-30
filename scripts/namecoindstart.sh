@@ -2,4 +2,5 @@
 
 # Start Namecoin
 # Include manual namecoind declaration as namecoind use ~/.namecoin/bitcoin.conf as a default
-su -s /bin/bash -c '/opt/bin/namecoind -conf=namecoin.conf start' coin
+VARIABLES="-conf=/home/coin/namecoin.conf"
+su -s /bin/bash -c '/opt/bin/namecoind $VARIABLES' coin &
