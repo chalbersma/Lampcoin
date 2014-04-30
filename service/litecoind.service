@@ -1,0 +1,18 @@
+[Unit]
+Description=Litecoind Server
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+User=coin
+Group=coin
+PIDFile=/home/coin/.litecoin/litecoind.pid
+ExecStartPre=/bin/rm -f /home/coin/.litecoin/litecoind.pid
+ExecStart=/opt/bin/litecoind -daemon
+ExecReload=/opt/bin/litecoind stop; sleep 30s; /opt/bin/litecoind start
+ExecStop=/opt/bin/litecoind stop
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

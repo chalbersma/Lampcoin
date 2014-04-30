@@ -1,0 +1,18 @@
+[Unit]
+Description=Namecoind Server
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+User=coin
+Group=coin
+PIDFile=/home/coin/.namecoin/namecoind.pid
+ExecStartPre=/bin/rm -f /home/coin/.namecoin/namecoind.pid
+ExecStart=/opt/bin/namecoind -daemon
+ExecReload=/opt/bin/namecoind stop; sleep 30s; /opt/bin/namecoind start
+ExecStop=/opt/bin/namecoind stop
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

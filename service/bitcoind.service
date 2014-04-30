@@ -9,7 +9,9 @@ User=coin
 Group=coin
 PIDFile=/home/coin/.bitcoin/bitcoind.pid
 ExecStartPre=/bin/rm -f /home/coin/.bitcoin/bitcoind.pid
-ExecStart=/opt/bin/bitcoind
+ExecStart=/opt/bin/bitcoind -daemon
+ExecReload=/opt/bin/bitcoind stop; sleep 30s; /opt/bin/bitcoind start
+ExecStop=/opt/bin/bitcoind stop
 Restart=on-abort
 
 [Install]
