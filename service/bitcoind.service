@@ -1,0 +1,16 @@
+[Unit]
+Description=Bitcoind Server
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+User=coin
+Group=coin
+PIDFile=/home/coin/.bitcoin/bitcoind.pid
+ExecStartPre=/bin/rm -f /home/coin/.bitcoin/bitcoind.pid
+ExecStart=/opt/bin/bitcoind
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
