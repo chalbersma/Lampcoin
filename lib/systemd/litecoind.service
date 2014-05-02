@@ -7,11 +7,11 @@ After=network.target
 Type=forking
 User=coin
 Group=coin
-PIDFile=/home/coin/.litecoin/litecoind.pid
-ExecStartPre=/bin/rm -f /home/coin/.litecoin/litecoind.pid
-ExecStart=/opt/bin/litecoind -daemon
-ExecReload=/opt/bin/litecoind stop; sleep 30s; /opt/bin/litecoind start
-ExecStop=/opt/bin/litecoind stop
+PIDFile=/var/coin/db/litecoind/litecoind.pid
+ExecStartPre=/bin/rm -f /var/coin/db/litecoind/litecoind.pid
+ExecStart=/usr/local/bin/litecoind -daemon -conf=/usr/local/etc/litecoin.conf
+ExecReload=/usr/local/bin/litecoind stop; sleep 30s; /usr/local/bin/litecoind start
+ExecStop=/usr/local/bin/litecoind stop
 Restart=on-abort
 
 [Install]

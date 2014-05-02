@@ -7,11 +7,11 @@ After=network.target
 Type=forking
 User=coin
 Group=coin
-PIDFile=/home/coin/.namecoin/namecoind.pid
-ExecStartPre=/bin/rm -f /home/coin/.namecoin/namecoind.pid
-ExecStart=/opt/bin/namecoind -daemon
-ExecReload=/opt/bin/namecoind stop; sleep 30s; /opt/bin/namecoind start
-ExecStop=/opt/bin/namecoind stop
+PIDFile=/var/coin/db/namecoind/namecoind.pid
+ExecStartPre=/bin/rm -f /var/coin/db/namecoind/namecoind.pid
+ExecStart=/usr/local/bin/bin/namecoind -daemon -conf=/usr/local/etc/namecoin.conf
+ExecReload=/usr/local/bin/bin/namecoind stop; sleep 30s; /usr/local/bin/bin/namecoind start
+ExecStop=/usr/local/bin/bin/namecoind stop
 Restart=on-abort
 
 [Install]
