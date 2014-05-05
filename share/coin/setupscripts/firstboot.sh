@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Config Path
-echo "PATH=$PATH:/opt/bin" >> /etc/profile.d/profile.sh
+# Manually set echo "PATH=$PATH:/opt/bin" >> /etc/profile.d/profile.sh
 
 # Change Coin Directory Ownership
 chown -R coin:coin /var/coin/
