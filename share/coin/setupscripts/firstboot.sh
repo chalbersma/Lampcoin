@@ -12,10 +12,12 @@ chmod -R 755 /usr/local/*
 
 # Setup DB Direcotry
 mkdir -p /var/coin/db
+chown coin:coin /var/coin/db
 chmod -R 760 /var/coin/db
 mkdir -p /var/coin/db/namecoind
 mkdir -p /var/coin/db/litecoind
 mkdir -p /var/coin/db/bitcoind
+chown coin:coin /var/coin/db/*
 chmod -R 760 /var/coin/db/namecoind
 chmod -R 760 /var/coin/db/litecoind
 chmod -R 760 /var/coin/db/bitcoind
