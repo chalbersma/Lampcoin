@@ -10,20 +10,6 @@ chown -R coin:coin /var/coin/
 chown -R root:root /usr/local/*
 chmod -R 755 /usr/local/*
 
-# Setup DB Direcotry
-mkdir -p /var/coin/db
-chown coin:coin /var/coin/db
-chmod -R 760 /var/coin/db
-mkdir -p /var/coin/db/namecoind
-mkdir -p /var/coin/db/litecoind
-mkdir -p /var/coin/db/bitcoind
-chown coin:coin /var/coin/db/*
-chmod -R 760 /var/coin/db/namecoind
-chmod -R 760 /var/coin/db/litecoind
-chmod -R 760 /var/coin/db/bitcoind
-
-
-
 # Setup Permissions in /usr/local/
 
 # Setup for Share
@@ -45,9 +31,9 @@ chmod -R 755 /usr/local/bin/namecoind
 chown -R root:root /usr/local/etc/
 chown -R 666 /usr/local/etc/
 chown -R coin:coin /usr/local/etc/*.conf
-chown 664 /usr/local/etc/bitcoin.conf
-chown 664 /usr/local/etc/litecoin.conf
-chown 664 /usr/local/etc/namecoin.conf
+chmod 400 /usr/local/etc/bitcoin.conf
+chmod 400 /usr/local/etc/litecoin.conf
+chmod 400 /usr/local/etc/namecoin.conf
 
 # Setup Lib
 chown -R root:root /usr/local/lib/

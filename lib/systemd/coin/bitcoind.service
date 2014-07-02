@@ -7,11 +7,9 @@ After=network.target
 Type=forking
 User=coin
 Group=coin
-PIDFile=/var/coin/db/bitcoind/bitcoind.pid
-ExecStartPre=/bin/rm -f /var/coin/db/bitcoind/bitcoind.pid
 ExecStart=/usr/local/bin/bitcoind -daemon -conf=/usr/local/etc/bitcoin.conf
-ExecReload=/usr/local/bin/bitcoind stop; sleep 30s; /usr/local/bin/bitcoind start
-ExecStop=/usr/local/bin/bitcoind stop
+ExecReload=/usr/local/bin/bitcoind -conf=/usr/local/etc/bitcoin.conf stop; sleep 30s; /usr/local/bin/bitcoind -daemon -conf=/usr/local/etc/bitcoin.conf -reindex
+ExecStop=/usr/local/bin/bitcoind -conf=/usr/local/etc/bitcoin.conf stop
 Restart=on-abort
 
 [Install]
